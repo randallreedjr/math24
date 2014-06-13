@@ -20,4 +20,18 @@ describe 'Running math24' do
       end
     end
   end
+
+  context 'providing numbers' do
+    it 'prints instructions if too many numbers are given' do
+      math24.stub(:gets).and_return('1 2 3 4 5', 'exit')
+      number_output = capture_stdout { math24.run }
+      expect(number_output).to match(/Please enter exactly four numbers/)
+    end
+
+    it 'prints the solution if possible' do
+      math24.stub(:gets).and_return('1 2 3 4', 'exit')
+      number_output = capture_stdout { math24.run }
+      expect(number_output).to match(/\(\(1 \+ 2\) \+ 3\) \* 4 = 24/)
+    end
+  end
 end
