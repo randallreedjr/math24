@@ -9,6 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ["lib/math24cli.rb"]
   s.homepage    = 'http://rubygems.org/gems/math24cli'
   s.license     = 'MIT'
-  s.add_dependency  'math24', Math24::VERSION
-  s.executabes << 'math24'
+  s.add_dependency  'math24', '0.0.1'
+  s.executables << 'math24'
 end
