@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative "../math24cli.rb"
+require_relative "../config/environment.rb"
 cli = Math24CLI.new
 cli.run()

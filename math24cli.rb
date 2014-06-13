@@ -1,4 +1,3 @@
-require_relative 'math24.rb'
 class Math24CLI
   attr_reader :operators
   
