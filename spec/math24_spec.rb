@@ -8,9 +8,15 @@ describe Math24, "#initialize" do
 end
 
 describe Math24, "solve" do
-  it "solave a simple addition example" do
+  it "solves a simple addition example" do
     math24 = Math24.new()
     math24.numbers = ["6", "6", "6", "6"]
     expect(math24.solve).to eq("6 + 6 + 6 + 6 = 24")
+  end
+
+  it "provides feedback if no solution found" do
+    math24 = Math24.new()
+    math24.numbers = ["1", "1", "1", "1"]
+    expect(math24.solve).to eq("No solution found")
   end
 end
