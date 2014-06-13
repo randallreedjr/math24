@@ -1,16 +1,13 @@
 require_relative "../config/environment.rb"
-require_relative "spec_helper.rb"
-
-
 
 describe 'Running math24' do
-  let (:math24) { Math24.new() }
+  let (:math24) { Math24CLI.new() }
 
   context 'entering commands' do
     describe 'help' do
       it 'prints instructions on how to use solver' do
         math24.stub(:gets).and_return('help', 'exit')
-        help_output = capture_stdout { math24.call }
+        help_output = capture_stdout { math24.run }
         expect(help_output).to match(/Input four numbers, and Math24 solution will be printed/)
       end
     end
@@ -18,7 +15,7 @@ describe 'Running math24' do
     describe 'exit' do
       it 'prints a goodbye message' do
         math24.stub(:gets).and_return('exit')
-        exit_output = capture_stdout { math24.call }
+        exit_output = capture_stdout { math24.run }
         expect(exit_output).to match(/Thanks for playing!/)
       end
     end
