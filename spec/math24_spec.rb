@@ -1,0 +1,1 @@
+require_relaitve "../config/environment.rb"
