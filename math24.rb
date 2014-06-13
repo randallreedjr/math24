@@ -16,7 +16,7 @@ class Math24
     end
 
     @numbers.each do |number|
-      if number.to_i < 1 || number.to_i > 9
+      if (number.to_i < 1) || (number.to_i > 9) || (number.to_f != number.to_i)
         return "Please only enter integers between 1 and 9"
       end
     end
