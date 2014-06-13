@@ -10,7 +10,7 @@ class Math24
 
   def solve(numbers = [])
     if numbers.empty?
-      return "Please provide numbers" if @number.empty?
+      return "Please provide numbers" if @numbers.empty?
     else
       @numbers = numbers
     end
