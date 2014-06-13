@@ -25,4 +25,22 @@ describe Math24, "solve" do
     math24.numbers = ["1", "1", "1", "1.5"]
     expect(math24.solve).to eq("Please only enter integers between 1 and 9")
   end
+
+  it "only does not accept negative numbers" do
+    math24 = Math24.new()
+    math24.numbers = ["1", "1", "1", "-1"]
+    expect(math24.solve).to eq("Please only enter integers between 1 and 9")
+  end
+
+  it "only does not accept zero" do
+    math24 = Math24.new()
+    math24.numbers = ["1", "1", "1", "0"]
+    expect(math24.solve).to eq("Please only enter integers between 1 and 9")
+  end
+
+  it "only does not accept numbers greater than 9" do
+    math24 = Math24.new()
+    math24.numbers = ["1", "1", "1", "10"]
+    expect(math24.solve).to eq("Please only enter integers between 1 and 9")
+  end
 end
