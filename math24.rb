@@ -21,13 +21,12 @@ class Math24
       end
     end
     
-    index = 1
     op_permutation = @operators.repeated_permutation(3)
     num_permutation = @numbers.permutation(4).to_a.uniq
     current_result = 0
 
     num_permutation.each do |numbers|
-      op_permutation.each_with_index do |operators, index|
+      op_permutation.each do |operators|
         current_result = numbers[0].to_f
         operators.each_with_index do |operator, index|
           current_result = current_result.send(operator.to_sym, numbers[index+1].to_f)
