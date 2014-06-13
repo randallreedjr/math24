@@ -3,7 +3,7 @@ class Math24
   attr_reader :operators
   attr_accessor :target
 
-  def initialize(operators)
+  def initialize(operators = ["+", "-", "*", "/"])
     @operators = operators
     @target = 24
   end
