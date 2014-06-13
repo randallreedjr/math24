@@ -14,6 +14,12 @@ class Math24
     else
       @numbers = numbers
     end
+
+    @numbers.each do |number|
+      if number.to_i < 1 || number.to_i > 9
+        return "Please only enter integers between 1 and 9"
+      end
+    end
     
     index = 1
     op_permutation = @operators.repeated_permutation(3)
