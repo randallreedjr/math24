@@ -31,6 +31,6 @@ class Math24CLI
 
       command = gets.chomp
     end
-
+    puts "Thanks for playing!"
   end
 end
