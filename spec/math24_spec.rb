@@ -19,4 +19,10 @@ describe Math24, "solve" do
     math24.numbers = ["1", "1", "1", "1"]
     expect(math24.solve).to eq("No solution found")
   end
+
+  it "only accepts integers" do
+    math24 = Math24.new()
+    math24.numbers = ["1", "1", "1", "1.5"]
+    expect(math24.solve).to eq("Please only enter integers between 1 and 9")
+  end
 end
