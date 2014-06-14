@@ -22,3 +22,5 @@ For more information see:
 To start the game, type
     math24game
 in your terminal.
+To quit, just type
+    exit
