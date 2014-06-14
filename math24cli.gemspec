@@ -4,6 +4,7 @@ Gem::Specification.new do |s|
   s.date        = '2014-06-13'
   s.summary     = "Command Line Interface for Math 24 game solver"
   s.description = "Allows a user to interact with the Math24 gem through a command line interface"
+  s.has_rdoc    = false
   s.authors     = ["Randall Reed, Jr."]
   s.email       = 'randallreedjr@gmail.com'
   s.files       = ["lib/math24cli.rb"]
