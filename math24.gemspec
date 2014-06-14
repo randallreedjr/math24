@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'math24'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2014-06-13'
   s.summary     = "Solver for Math 24 game"
   s.description = "Provide numbers and available operators, and solve() will return operations to generate 24"
