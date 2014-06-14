@@ -1,4 +1,4 @@
-require_relative 'math24game.rb'
+require 'math24game'
 
 def run()
   game = Math24Game.new()
