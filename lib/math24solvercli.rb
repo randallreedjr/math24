@@ -8,7 +8,7 @@ class Math24CLI
   def run()
     puts "Welcome to Math 24 solver! Please enter your numbers to see solution"
     command = ""
-    solver = Math24.new(operators)
+    solver = Math24Solver.new(operators)
     command = gets.chomp
     while command.downcase != "exit"
       if command.downcase == "help"

@@ -1,7 +1,7 @@
-require 'math24game'
+require 'math24'
 
 def run()
-  game = Math24Game.new()
+  game = Math24.new()
   command = ""
 
   while command.downcase != "exit"

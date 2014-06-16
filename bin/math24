@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'math24'
-require 'math24cli'
+require_relative '../lib/math24solver.rb'
+require_relative '../lib/math24gamecli.rb'
 
-cli = Math24CLI.new
+cli = Math24GameCli.new
 cli.run()

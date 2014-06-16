@@ -1,54 +1,42 @@
-class Math24
-  attr_accessor :numbers
-  attr_reader :operators
-  attr_accessor :target
+require 'math24solver'
 
-  def initialize(operators = ["+", "-", "*", "/"])
-    @operators = operators
-    @target = 24
+class Math24
+
+  attr_reader :numbers
+
+  def initialize
   end
 
-  def solve(numbers = [])
-    if numbers.empty?
-      return "Please provide numbers" if @numbers.empty?
-    else
-      @numbers = numbers
-    end
-
-    @numbers.each do |number|
-      if (number.to_i < 1) || (number.to_i > 9) || (number.to_f != number.to_i)
-        return "Please only enter integers between 1 and 9"
-      end
-    end
-    
-    op_permutation = @operators.repeated_permutation(3)
-    num_permutation = @numbers.permutation(4).to_a.uniq
-    current_result = 0
-
-    num_permutation.each do |numbers|
-      op_permutation.each do |operators|
-        current_result = numbers[0].to_f
-        operators.each_with_index do |operator, index|
-          current_result = current_result.send(operator.to_sym, numbers[index+1].to_f)
-          break if current_result < 1 #Don't allow fractional numbers at any stage
-        end
-        if current_result == @target
-          if (operators.include?("+") || operators.include?("-")) && (operators.include?("*") || operators.include?("/"))
-            #Might need parentheses for order of operations
-            return "((#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} #{numbers[2]}) #{operators[2]} #{numbers[3]} = 24"
-          else
-            return "#{numbers[0]} #{operators[0]} #{numbers[1]} #{operators[1]} #{numbers[2]} #{operators[2]} #{numbers[3]} = 24"
-          end
-          break
+  def solution?(solution)
+    #string = "((1 + 5) + 2) * 3"
+    if eval(solution) == 24
+      operands = solution.scan(/\d/)
+      operators = solution.scan(/[\+\-\*\/]/)
+      if (operands.size + operators.size) == solution.gsub(/[\(\)]/,"").gsub(" ","").size
+        @numbers.permutation.each do |number_set|
+          return true if number_set == operands
         end
       end
     end
-    return "No solution found"
+    return false
+  end
+
+  def generate_problem()
+    #for testing
+    #@numbers = ["7","5","3","8"]
+    #return @numbers
+
+    loop do
+      numbers = []
+      4.times do |i|
+        numbers << rand(1..9).to_s
+      end
+      math24 = Math24Solver.new()
+      math24.numbers = numbers
+      if math24.solve() != "No solution found"
+        @numbers = numbers
+        return numbers
+      end
+    end
   end
 end
-
-
-
-
-
-
