@@ -18,14 +18,14 @@ Running the executable
 ----------------------
 To run the command line game, first install the gem:
 ```bash
-gem install math24
+> gem install math24
 Successfully installed math24-1.0.1
 1 gem installed
 ```
 
 Then, to start the game, type
 ```bash
-math24
+> math24
 ```
 
 To quit, just type
