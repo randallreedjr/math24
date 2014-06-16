@@ -17,7 +17,10 @@ describe Math24 do
     expect(problem1).not_to eq(problem2)
   end
 
-  #it "should accept the solver's solution" do
-
-  #end
+  it "should accept the solver's solution" do
+    problem = math24.generate_problem
+    solver = Math24Solver.new()
+    solution = solver.solve(problem).gsub(" = 24", "")
+    expect(math24.solution?(solution)).to eq(true)
+  end
 end
