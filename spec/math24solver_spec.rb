@@ -1,4 +1,4 @@
-require_relative "../config/environment.rb"
+require_relative "spec_helper.rb"
 
 describe Math24Solver do
   let (:math24) { Math24Solver.new() }

@@ -8,11 +8,11 @@ class Math24Solver
     @target = 24
   end
 
-  def solve(numbers = [])
-    if numbers.empty?
+  def solve(problem_numbers = [])
+    if problem_numbers.empty?
       return "Please provide numbers" if @numbers.empty?
     else
-      @numbers = numbers
+      @numbers = problem_numbers
     end
 
     @numbers.each do |number|
