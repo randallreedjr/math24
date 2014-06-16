@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
 describe 'Running math24' do
-  let (:math24) { Math24CLI.new() }
+  let (:math24) { Math24SolverCLI.new() }
 
   context 'entering commands' do
     describe 'help' do

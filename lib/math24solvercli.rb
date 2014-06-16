@@ -1,4 +1,4 @@
-class Math24CLI
+class Math24SolverCLI
   attr_reader :operators
   
   def initialize

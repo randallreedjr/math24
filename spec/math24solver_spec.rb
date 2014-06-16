@@ -1,7 +1,7 @@
 require_relative "../config/environment.rb"
 
-describe Math24 do
-  let (:math24) { Math24.new() }
+describe Math24Solver do
+  let (:math24) { Math24Solver.new() }
 
   context 'initialize' do
     it "sets default operators" do
