@@ -1,7 +1,7 @@
 Math24
 ======
 
-Solver for the Math 24 game
+Math 24 game and solver
 
 This repository holds the source code for the math24 ruby gem.
 
