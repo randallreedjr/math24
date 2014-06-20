@@ -9,7 +9,7 @@ class Math24
 
   def solution?(solution)
     #string = "((1 + 5) + 2) * 3"
-    if eval(solution) == 24
+    if instance_eval(solution) == 24
       operands = solution.scan(/\d/)
       operators = solution.scan(/[\+\-\*\/]/)
       if (operands.size + operators.size) == solution.gsub(/[\(\)]/,"").gsub(" ","").size
