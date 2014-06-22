@@ -25,10 +25,6 @@ class Math24
   end
 
   def generate_problem()
-    #for testing
-    #@numbers = ["7","5","3","8"]
-    #return @numbers
-
     loop do
       numbers = []
       4.times do |i|
