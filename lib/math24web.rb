@@ -1,6 +1,5 @@
 require "sinatra"
 require "math24"
-require_relative "math24solver.rb"
 
 get '/' do
   erb :index
