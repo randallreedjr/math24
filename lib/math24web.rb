@@ -8,18 +8,19 @@ end
 get '/problem' do 
   math24 = Math24.new
   problem = math24.generate_problem.join(" ")
+  session[:problem] = problem
   erb :problem, :locals => {:problem => problem}
 end
 
-get '/check' do
-  problem = params[:problem] || ""
-  solution = params[:solution] || ""
+post '/check' do
+  problem = "#{params[:problem] || ""}"
+  solution = "#{params[:solution] || ""}"
   math24 = Math24.new
   math24.numbers = problem.split(" ")
   if math24.solution?(solution)
     erb :correct, :locals => {:problem => problem, :solution => solution}
   else
-    erb :incorrect, :locals => {:problem => problem}
+    erb :incorrect, :locals => {:problem => problem, :solution => solution}
   end
-
 end
+

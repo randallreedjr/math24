@@ -9,6 +9,10 @@
       <div>Show me solutions</div>
     </div>
     <div><%= problem %></div>
-    <div><a href="/check?problem=<%= problem %>">Check my answer!</a></div>
+    <form action="/check" method="POST">
+      <input type="hidden" name="problem" value="<%= problem %>">
+      <input type="text" name="solution">
+      <input type="submit">
+    </form>
   </body>
 </html>
