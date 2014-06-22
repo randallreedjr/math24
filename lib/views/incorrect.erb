@@ -1,3 +1,8 @@
     <div><%= problem %></div>
     <div><%= solution %></div>
-    <div>Sorry, that's not right. Try again!</div>
+    <div>Sorry, that's not right.</div>
+     <form action="/problem" method="POST">
+      <input type="hidden" name="problem" value="<%= problem %>">
+      <input type="submit" value="Try again!" class="linkButton"> 
+    </form>
+    <div><a href="/problem">Skip!</a></div>

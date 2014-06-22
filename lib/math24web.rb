@@ -8,7 +8,12 @@ end
 get '/problem' do 
   math24 = Math24.new
   problem = math24.generate_problem.join(" ")
-  session[:problem] = problem
+  erb :problem, :locals => {:problem => problem}
+end
+
+post '/problem' do
+  math24 = Math24.new
+  problem = "#{params[:problem] || ""}"
   erb :problem, :locals => {:problem => problem}
 end
 
