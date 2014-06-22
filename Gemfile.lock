@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/gems/math24/
+  remote: https://rubygems.org/
   specs:
     math24 (1.0.3)
     rack (1.5.2)

@@ -38,7 +38,7 @@ post '/solution' do
   end
   if valid
     solution = math24solver.solve(numbers)
-    erb :solution, :locals => {:problem => numbers, 
+    erb :solution, :locals => {:problem => numbers.join(" "), 
                                :solution => solution,
                                :last_answer => 24}
   else

@@ -1,6 +1,10 @@
     <div><%= problem %></div>
     <form action="/check" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">
-      <input type="text" name="solution">
-      <input type="submit">
+      <input class="inputbox" type="text" name="solution">
+      <input type="submit" class="check" value="Check">
+    </form>
+    <form action="/solution" method="POST">
+      <input type="hidden" name="problem" value="<%= problem %>">
+      <input type="submit" class="giveup" value="Show solution">
     </form>

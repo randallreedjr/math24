@@ -1,11 +1,102 @@
-.linkButton { 
-     background: none;
-     border: none;
-     color: #0066ff;
-     text-decoration: underline;
-     cursor: pointer; 
+.tryagain {    
+  font: 14px Arial;
+  color: black;
+  text-decoration: none;
+  cursor: pointer; 
+  border: 1px solid black;
+  padding: 10px;
+  display: inline;
+  background: green;
+}
+
+.check {    
+  font: 14px Arial;
+  color: black;
+  text-decoration: none;
+  cursor: pointer; 
+  border: 1px solid black;
+  padding: 10px;
+  display: inline;
+  background: green;
+}
+
+.giveup {    
+  font: 14px Arial;
+  color: black;
+  text-decoration: none;
+  cursor: pointer; 
+  border: 1px solid black;
+  padding: 10px;
+  display: inline;
+  background: red;
+}
+
+.skip {
+  border: 1px solid black;
+  padding: 10px;
+  display: inline;
+  background: yellow;
+}
+
+.skip a {
+  text-decoration: none;
+  color: black;
 }
 
 body {
   background: lightgray;
+}
+
+/******** Nav Bar **********/
+#nav_bar {
+  border-bottom: 1px solid #ccc;
+
+}
+
+#nav_bar nav {
+  border-left: 1px solid #ccc;
+}
+
+#nav_bar nav a {
+  display: inline-block;
+  width: 10%;
+  margin: 0;
+  padding: 20px 0;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  text-decoration: none;
+  font: 20px "Trebuchet MS", Arial, sans-serif;
+}
+
+.problem {
+  border: 1px solid black;
+  padding: 10px;
+  display: inline-block;
+  background: green;
+}
+
+.solution {
+  border: 1px solid black;
+  padding: 10px;
+  display: inline-block;
+  background: red;
+}
+
+.problem a {
+  text-decoration: none;
+  color: black;
+}
+
+.solution a {
+  text-decoration: none;
+  color: black;
+}
+
+.inputbox {
+  border: 5px solid black;
+  font-size: 32px;
+  padding: 10px;
+  display: block;
 }
