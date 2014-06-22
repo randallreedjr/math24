@@ -2,7 +2,7 @@ require 'math24solver'
 
 class Math24
 
-  attr_reader :numbers
+  attr_accessor :numbers
 
   def initialize
   end
