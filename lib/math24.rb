@@ -3,18 +3,21 @@ require 'math24solver'
 class Math24
 
   attr_accessor :numbers
+  attr_reader :last_answer
 
   def initialize
   end
 
   def solution?(solution)
-    #string = "((1 + 5) + 2) * 3"
-    if instance_eval(solution) == 24
-      operands = solution.scan(/\d/)
-      operators = solution.scan(/[\+\-\*\/]/)
-      if (operands.size + operators.size) == solution.gsub(/[\(\)]/,"").gsub(" ","").size
-        @numbers.permutation.each do |number_set|
-          return true if number_set == operands
+    if solution.scan(/(\A\(*(\d{1}\s*[+-\/\*]+[()\s]*){3}\d{1}\)*\z)/)[0] == solution
+      @last_answer = instance_eval(solution)
+      if last_answer == 24
+        operands = solution.scan(/\d/)
+        operators = solution.scan(/[\+\-\*\/]/)
+        if (operands.size + operators.size) == solution.gsub(/[\(\)]/,"").gsub(" ","").size
+          @numbers.permutation.each do |number_set|
+            return true if number_set == operands
+          end
         end
       end
     end
