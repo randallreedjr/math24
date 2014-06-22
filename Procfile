@@ -1,0 +1,1 @@
+web: bundle exec ruby lib/math24web.rb -p $PORT
