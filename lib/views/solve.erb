@@ -1,0 +1,8 @@
+    <div>Put in four numbers, separated by spaces (# # # #) or commas (#,#,#,#)</div>
+    <form action="/solution" method="POST">
+      <input type="text" name="problem">
+      <input type="submit">
+    </form>
+    <% if invalid %>
+    <div>Invalid input, please try again</div>
+    <% end %>
