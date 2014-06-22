@@ -1,4 +1,4 @@
-source "https://rubygems.org/gems/math24"
+source "https://rubygems.org/"
 ruby "2.1.2"
 gem 'sinatra', '1.4.5' 
 gem 'tilt', '1.4.1'
