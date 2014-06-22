@@ -23,7 +23,7 @@
 .mybutton {
   border: 1px solid black;
   padding: 10px;
-  display: inline;
+  display: inline-block;
 }
 
 .mybutton a {
