@@ -27,9 +27,13 @@ post '/check' do
   math24 = Math24.new
   math24.numbers = problem.split(" ")
   if math24.solution?(solution)
-    erb :correct, :locals => {:problem => problem, :solution => solution}
+    erb :correct, :locals => {:problem => problem, 
+                              :solution => solution, 
+                              :last_answer => math24.last_answer}
   else
-    erb :incorrect, :locals => {:problem => problem, :solution => solution}
+    erb :incorrect, :locals => {:problem => problem, 
+                                :solution => solution, 
+                                :last_answer => math24.last_answer}
   end
 end
 

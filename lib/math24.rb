@@ -20,6 +20,8 @@ class Math24
           end
         end
       end
+    else
+      @last_answer = "???"
     end
     return false
   end
