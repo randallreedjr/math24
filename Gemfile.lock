@@ -16,4 +16,6 @@ PLATFORMS
 
 DEPENDENCIES
   math24 (= 1.0.3)
+  rack (= 1.5.2)
   sinatra (= 1.4.5)
+  tilt (= 1.4.1)
