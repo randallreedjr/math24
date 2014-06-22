@@ -1,10 +1,22 @@
+            <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/problem">Play</a></li>
+            <li><a href="/solve">Solutions</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+      <div class="jumbotron">
     <div><%= problem %></div>
     <form action="/check" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">
       <input class="inputbox" type="text" name="solution">
-      <input type="submit" class="check" value="Check">
+      <input type="submit" class="green mybutton" value="Check">
     </form>
     <form action="/solution" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">
-      <input type="submit" class="giveup" value="Show solution">
+      <input type="submit" class="red mybutton" value="Show solution">
     </form>
