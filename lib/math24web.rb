@@ -5,6 +5,10 @@ get '/' do
   erb :index
 end
 
+get '/about' do
+  erb :about
+end
+
 get '/problem' do 
   math24 = Math24.new
   problem = math24.generate_problem.join(" ")
