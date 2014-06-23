@@ -33,7 +33,21 @@
 
 .inputbox {
   border: 5px solid black;
-  font-size: 32px;
+  font-size: 48px;
   padding: 10px;
   display: block;
+  margin: 5px 0;
+}
+
+.numbers {
+  font-size: 32px;
+}
+
+.correct {
+  color: green;
+  margin-bottom: 15px;
+}
+
+.incorrect {
+  color: red;
 }

@@ -10,8 +10,8 @@
     </div>
     <div class="container">
       <div class="jumbotron">
-    <div><%= problem %></div>
-    <div><%= solution %> = <%= last_answer %></div>
+    <div class="numbers"><%= problem %></div>
+    <div class="numbers incorrect"><%= solution %> = <%= last_answer %></div>
     <div class="status">Sorry, that's not right.</div>
      <form action="/problem" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">
