@@ -12,7 +12,7 @@
       <div class="jumbotron">
     <div><%= problem %></div>
     <div><%= solution %> = <%= last_answer %></div>
-    <div>Sorry, that's not right.</div>
+    <div class="status">Sorry, that's not right.</div>
      <form action="/problem" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">
       <input type="submit" value="Try again!" class="green mybutton"> 
