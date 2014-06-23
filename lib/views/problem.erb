@@ -13,7 +13,7 @@
     <div class="numbers"><%= problem %></div>
     <form action="/check" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">
-      <input class="inputbox" type="text" name="solution">
+      <input class="inputbox" type="text" name="solution" autofocus="autofocus">
       <input type="submit" class="green mybutton" value="Check">
     </form>
     <form action="/solution" method="POST">
