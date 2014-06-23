@@ -2,21 +2,22 @@ require 'math24'
 
 def run()
   game = Math24.new()
-  command = ""
 
-  while command.downcase != "exit"
-    solved = false
-    attempt = ""
-    print "Solve: #{game.generate_problem().join(' ')}\n"
-    while not solved && attempt.downcase != "exit"
-      attempt = gets.chomp
-      solved = game.solution?(attempt)
-      if solved
-        puts "Correct!\n\n"
-      else
-        puts "Try again...\n\n"
-      end
+  problem = game.generate_problem().join(' ')
+  puts "Solve: #{problem}"
+  attempt = gets.chomp
+
+  while attempt.downcase != "exit"
+    solved = game.solution?(attempt)
+    if solved
+      puts "Correct!\n\n" 
+      solved = false
+      problem = game.generate_problem().join(' ')
+    else
+      puts "Try again...\n\n" unless problem.empty?
     end
+    puts "Solve: #{problem}"
+    attempt = gets.chomp
   end
 end
 

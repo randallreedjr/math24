@@ -11,15 +11,7 @@ class Math24
   def solution?(solution)
     if solution.scan(/\A(\(*(\d{1}[()\s]*[*+-\/]+[()\s]*){3}\d{1}\)*)\z/).flatten.first == solution
       @last_answer = instance_eval(solution)
-      if last_answer == 24
-        operands = solution.scan(/\d/)
-        operators = solution.scan(/[\+\-\*\/]/)
-        if (operands.size + operators.size) == solution.gsub(/[\(\)]/,"").gsub(" ","").size
-          @numbers.permutation.each do |number_set|
-            return true if number_set == operands
-          end
-        end
-      end
+      return last_answer == 24
     else
       @last_answer = "???"
     end
