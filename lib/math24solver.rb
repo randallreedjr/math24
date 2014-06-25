@@ -47,7 +47,7 @@ class Math24Solver
           end
           break
         elsif alternate_result == @target
-          return "(#{numbers[0]}#{operators[0]}#{numbers[1]})#{operators[1]}(#{numbers[2]}#{operators[2]}#{numbers[3]})"
+          return "(#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]})"
           break
         end
       end
