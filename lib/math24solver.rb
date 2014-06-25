@@ -32,8 +32,12 @@ class Math24Solver
         current_result = current_result.send(operator.to_sym, numbers[index+1].to_f)
           break if current_result < 1 #Don't allow fractional numbers at any stage
         end
-        alternate_result = instance_eval("(#{numbers[0]}#{operators[0]}#{numbers[1]})#{operators[1]}(#{numbers[2]}#{operators[2]}#{numbers[3]})")
-      
+        begin
+          alternate_result = instance_eval("(#{numbers[0]}#{operators[0]}#{numbers[1]})#{operators[1]}(#{numbers[2]}#{operators[2]}#{numbers[3]})")
+        rescue
+          alternate_result = 0
+        end
+
         if current_result == @target
           if (operators.include?("+") || operators.include?("-")) && (operators.include?("*") || operators.include?("/"))
             #Might need parentheses for order of operations
