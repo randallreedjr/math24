@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
-    math24 (1.0.4)
+    math24 (1.1.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -28,7 +28,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  math24 (= 1.0.4)
+  math24 (= 1.1.0)
   rack (= 1.5.2)
   rack-protection (= 1.5.0)
   rspec (= 3.0.0)

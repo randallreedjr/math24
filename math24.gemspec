@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'math24'
-  s.version     = '1.0.4'
+  s.version     = '1.1.0'
   s.date        = '2014-06-23'
   s.summary     = "Command-line Math 24 game"
   s.description = "Randomly generates a solvable 24 Game problem, verifies user's solution"
