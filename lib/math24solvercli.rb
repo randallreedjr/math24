@@ -24,6 +24,7 @@ class Math24SolverCLI
         if numbers.size == 4
           solver.numbers = numbers
           puts solver.solve()
+          print "\n"
         else
           puts "Please enter exactly four numbers"
         end

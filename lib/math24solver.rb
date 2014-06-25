@@ -29,9 +29,11 @@ class Math24Solver
       op_permutation.each do |operators|
         current_result = numbers[0].to_f
         operators.each_with_index do |operator, index|
-          current_result = current_result.send(operator.to_sym, numbers[index+1].to_f)
+        current_result = current_result.send(operator.to_sym, numbers[index+1].to_f)
           break if current_result < 1 #Don't allow fractional numbers at any stage
         end
+        alternate_result = instance_eval("(#{numbers[0]}#{operators[0]}#{numbers[1]})#{operators[1]}(#{numbers[2]}#{operators[2]}#{numbers[3]})")
+      
         if current_result == @target
           if (operators.include?("+") || operators.include?("-")) && (operators.include?("*") || operators.include?("/"))
             #Might need parentheses for order of operations
@@ -39,6 +41,9 @@ class Math24Solver
           else
             return "#{numbers[0]} #{operators[0]} #{numbers[1]} #{operators[1]} #{numbers[2]} #{operators[2]} #{numbers[3]} = 24"
           end
+          break
+        elsif alternate_result == @target
+          return "(#{numbers[0]}#{operators[0]}#{numbers[1]})#{operators[1]}(#{numbers[2]}#{operators[2]}#{numbers[3]})"
           break
         end
       end
