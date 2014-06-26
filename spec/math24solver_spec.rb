@@ -42,21 +42,22 @@ describe Math24Solver do
 
     it "solves problems where order of operations matters" do
       math24.numbers =  ["9", "6", "6", "5"]
-      expect(math24.solve).to eq("(9 * 6) - (6 * 5)")
+      expect(math24.solve).to eq("(9 * 6) - (6 * 5) = 24")
     end
 
     it "solves another problem where OOP matters" do
       math24.numbers = ["9", "9", "8", "4"]
-      expect(math24.solve).to eq("8 * (4 - (9 / 9))")
+      expect(math24.solve).to eq("8 * (4 - (9 / 9)) = 24")
     end
 
     it "solves a third problem where OOP matters" do
       math24.numbers = ["6", "5", "7", "7"]
-      expect(math24.solve).to eq ("6 * (5 - (7 / 7))")
+      expect(math24.solve).to eq ("6 * (5 - (7 / 7)) = 24")
     end
 
     it "accepts numbers as arguments" do
-      expect(math24.solve(["9","8","3","2"])).to eq("((9 - 3) * 8) / 2 = 24")
+      math24.solve(["9","8","3","2"])
+      expect(math24.numbers).to eq(["9","8","3","2"])
     end
 
     it "provides feedback if no solution found" do
