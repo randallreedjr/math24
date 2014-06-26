@@ -40,9 +40,19 @@ describe Math24Solver do
       expect(math24.solve).to eq("((9 - 3) * 8) / 2 = 24")
     end
 
-    it "solves a problem where order of operations matters" do
+    it "solves problems where order of operations matters" do
       math24.numbers =  ["9", "6", "6", "5"]
       expect(math24.solve).to eq("(9 * 6) - (6 * 5)")
+    end
+
+    it "solves another problem where OOP matters" do
+      math24.numbers = ["9", "9", "8", "4"]
+      expect(math24.solve).to eq("8 * (4 - (9 / 9))")
+    end
+
+    it "solves a third problem where OOP matters" do
+      math24.numbers = ["6", "5", "7", "7"]
+      expect(math24.solve).to eq ("6 * (5 - (7 / 7))")
     end
 
     it "accepts numbers as arguments" do

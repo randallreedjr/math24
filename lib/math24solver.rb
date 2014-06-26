@@ -33,9 +33,15 @@ class Math24Solver
           break if current_result < 1 #Don't allow fractional numbers at any stage
         end
         begin
-          alternate_result = instance_eval("(#{numbers[0]}#{operators[0]}#{numbers[1]})#{operators[1]}(#{numbers[2]}#{operators[2]}#{numbers[3]})")
+          alternate_result = instance_eval("(#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]})")
         rescue
           alternate_result = 0
+        end
+
+        begin
+          reverse_result = instance_eval("#{numbers[0]} #{operators[0]} (#{numbers[1]} #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]}))")
+        rescue
+          reverse_result = 0
         end
 
         if current_result == @target
@@ -48,6 +54,9 @@ class Math24Solver
           break
         elsif alternate_result == @target
           return "(#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]})"
+          break
+        elsif reverse_result == @target
+          return "#{numbers[0]} #{operators[0]} (#{numbers[1]} #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]}))"
           break
         end
       end
