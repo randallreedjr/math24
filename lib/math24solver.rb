@@ -34,13 +34,13 @@ class Math24Solver
         end
         begin
           alternate_result = instance_eval("(#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]})")
-        rescue
+        rescue ZeroDivisionError
           alternate_result = 0
         end
 
         begin
           reverse_result = instance_eval("#{numbers[0]} #{operators[0]} (#{numbers[1]} #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]}))")
-        rescue
+        rescue ZeroDivisionError
           reverse_result = 0
         end
 
