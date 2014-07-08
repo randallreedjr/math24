@@ -1,29 +1,26 @@
-require "sinatra/base"
-require "math24"
-
-class Math24Web < Sinatra::Base
+class Math24Controller < ApplicationController
   get '/' do
-    erb :index
+    erb :'math24/index'
   end
 
   get '/about' do
-    erb :about
+    erb :'math24/about'
   end
 
   get '/problem' do 
     math24 = Math24.new
     problem = math24.generate_problem.join(" ")
-    erb :problem, :locals => {:problem => problem}
+    erb :'math24/problem', :locals => {:problem => problem}
   end
 
   post '/problem' do
     math24 = Math24.new
     problem = "#{params[:problem] || ""}"
-    erb :problem, :locals => {:problem => problem}
+    erb :'math24/problem', :locals => {:problem => problem}
   end
 
   get '/solve' do
-    erb :solve, :locals => {:invalid => false}
+    erb :'math24/solve', :locals => {:invalid => false}
   end
 
   post '/solution' do
@@ -39,11 +36,11 @@ class Math24Web < Sinatra::Base
     end
     if valid
       solution = math24solver.solve(numbers)
-      erb :solution, :locals => {:problem => numbers.join(" "), 
+      erb :'math24/solution', :locals => {:problem => numbers.join(" "), 
                                  :solution => solution,
                                  :last_answer => 24}
     else
-      erb :solve, :locals => {:invalid => true}
+      erb :'math24/solve', :locals => {:invalid => true}
     end
   end
 
@@ -53,14 +50,13 @@ class Math24Web < Sinatra::Base
     math24 = Math24.new
     math24.numbers = problem.split(" ")
     if math24.solution?(solution)
-      erb :correct, :locals => {:problem => problem, 
+      erb :'math24/correct', :locals => {:problem => problem, 
                                 :solution => solution, 
                                 :last_answer => math24.last_answer}
     else
-      erb :incorrect, :locals => {:problem => problem, 
+      erb :'math24/incorrect', :locals => {:problem => problem, 
                                   :solution => solution, 
                                   :last_answer => math24.last_answer}
     end
   end
 end
-

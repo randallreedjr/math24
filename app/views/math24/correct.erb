@@ -1,3 +1,4 @@
+<%= erb :'layouts/_header' %>
                 <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
@@ -11,10 +12,7 @@
     <div class="container">
       <div class="jumbotron">
     <div class="numbers"><%= problem %></div>
-    <div class="numbers incorrect"><%= solution %> = <%= last_answer %></div>
-    <div class="status">Sorry, that's not right.</div>
-     <form action="/problem" method="POST">
-      <input type="hidden" name="problem" value="<%= problem %>">
-      <input type="submit" value="Try again!" class="green mybutton"> 
-    </form>
-    <div class="yellow mybutton"><a href="/problem">Skip!</a></div>
+    <div class="numbers correct"><%= solution %> = <%= last_answer %>!</div>
+    <!--<div class="status green">CORRECT!</div>-->
+    <div class="green mybutton"><a href="/problem">Give me another!</a></div>
+<%= erb :'layouts/_footer' %>
