@@ -48,7 +48,6 @@ GEM
     sinatra-activerecord (2.0.2)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
-    sqlite3 (1.3.9)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -72,6 +71,5 @@ DEPENDENCIES
   shotgun
   sinatra (= 1.4.5)
   sinatra-activerecord
-  sqlite3 (= 1.3.9)
   thin
   tilt (= 1.4.1)
