@@ -1,1 +1,1 @@
-web: bundle exec ruby lib/math24web.rb -p $PORT
+web: bundle exec thin -R config.ru start -p $PORT -e $SINATRA_ENV
