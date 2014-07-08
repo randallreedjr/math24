@@ -10,6 +10,7 @@
     </div>
     <div class="container">
       <div class="jumbotron">
+        <span id="instructions">Use all four numbers exactly one time, in conjunction with the operations of addition (+), subtraction (-), multiplication (*), and division (/), to yield a result of 24.</span>
     <div class="numbers"><%= problem %></div>
     <form action="/check" method="POST">
       <input type="hidden" name="problem" value="<%= problem %>">

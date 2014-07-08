@@ -52,3 +52,10 @@
 .incorrect {
   color: red;
 }
+
+#instructions {
+  font-size: 20px;
+  font-style: italic;
+  display: inline-block;
+  padding-bottom: 20px;
+}
