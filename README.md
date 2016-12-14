@@ -32,3 +32,11 @@ To quit, just type
 ```bash
 exit
 ```
+
+## Deploying Web App
+
+The math 24 Sinatra web application is hosted on Heroku. Pushes to the `master` branch will automatically deploy via Codeship CI.
+
+You can also force a deploy by running `git push heroku master`.
+
+The web app is accessible at http://www.getto24.com.
