@@ -60,4 +60,55 @@ describe Math24 do
       expect(solution).to be false
     end
   end
+
+  describe '#check' do
+    it 'raises an argument error if problem array is not provided' do
+      begin
+        Math24.check([], '')
+      rescue ArgumentError
+        exception_raised = true
+      end
+
+      expect(exception_raised).to be true
+    end
+
+    it 'raises an argument error if solution string is not provided' do
+      begin
+        Math24.check([1, 2, 3, 4], 24)
+      rescue ArgumentError
+        exception_raised = true
+      end
+
+      expect(exception_raised).to be true
+    end
+
+
+    it 'raises an argument error if solution includes invalid characters' do
+      begin
+        Math24.check([1, 2, 3, 4], 'rm dummy.txt')
+      rescue ArgumentError
+        exception_raised = true
+      end
+
+      expect(exception_raised).to be true
+    end
+
+    it 'returns true if solution solves problem' do
+      correct = Math24.check([1, 2, 3, 4], '1 * 2 * 3 * 4')
+
+      expect(correct).to be true
+    end
+
+    it 'returns false if solution does not solve problem' do
+      correct = Math24.check([1, 2, 3, 4], '1 + 2 + 3 + 4')
+
+      expect(correct).to be false
+    end
+
+    it 'returns false if numbers do not match in problem and solution' do
+      correct = Math24.check([1, 2, 3, 4], '6 + 6 + 6 + 6')
+
+      expect(correct).to be false
+    end
+  end
 end

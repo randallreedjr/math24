@@ -54,4 +54,13 @@ module Math24
 
     return false
   end
+
+    def self.check(problem, solution)
+      raise ArgumentError unless /\A\d{4}\z/.match problem.join
+      raise ArgumentError unless solution.is_a? String
+      raise ArgumentError unless /\A(\(*(\d{1}[()\s]*[*+-\/]+[()\s]*){3}\d{1}\)*)\z/.match(solution)
+
+      problem.count {|i| solution.include?(i.to_s) } == 4 &&
+        instance_eval(solution) == 24
+    end
 end
