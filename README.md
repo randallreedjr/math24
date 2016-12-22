@@ -28,8 +28,34 @@ Or install it yourself as:
 
 As of version `2.0.0`, the interactive CLI version of the game has been removed.
 
+### Generate a Math 24 problem
 
-TODO: Write usage instructions here
+Generate a Math 24 problem. This method will return an array of four integers,
+guaranteed to be a solvable Math 24 problem.
+
+```
+Math24.generate_problem
+```
+
+### Check a solution
+
+Verify a potential solution for the given problem. The problem should be passed
+as an array of four integers, while the solution should be a string. This
+method will return true if the solution is valid, and false otherwise.
+
+```
+Math24.check(problem, solution)
+```
+
+### Solve a problem
+
+Solve a given Math 24 problem. The problem should be passed as an array of four
+integers. This method will return an expression string containing the same four
+integers from the given problem that, when evaluated, will equal 24.
+
+```
+Math24.solve(problem)
+```
 
 ## Development
 
