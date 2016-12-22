@@ -1,4 +1,6 @@
 # Math24
+[![CircleCI](https://circleci.com/gh/randallreedjr/math24/tree/master.svg?style=svg)](https://circleci.com/gh/randallreedjr/math24/tree/master)
+[![Gem Version](https://badge.fury.io/rb/math24.svg)](https://badge.fury.io/rb/math24)
 
 Math24 is a gem providing functionality to play the base version of the Math 24
  game. In the base version of Math 24, a player must combine 4 integers, using
