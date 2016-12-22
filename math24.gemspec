@@ -1,14 +1,29 @@
-Gem::Specification.new do |s|
-  s.name        = 'math24'
-  s.version     = '1.1.2'
-  s.date        = '2014-06-26'
-  s.summary     = "Command-line Math 24 game"
-  s.description = "Randomly generates a solvable 24 Game problem, verifies user's solution"
-  s.has_rdoc    = false
-  s.authors     = ["Randall Reed, Jr."]
-  s.email       = 'randallreedjr@gmail.com'
-  s.files       = ["lib/math24.rb", "lib/math24solver.rb", "lib/math24gamecli.rb"]
-  s.homepage    = 'http://rubygems.org/gems/math24'
-  s.license     = 'MIT'
-  s.executables = ["math24"]
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'math24/version'
+
+Gem::Specification.new do |spec|
+  spec.name          = "math24"
+  spec.version       = Math24::VERSION
+  spec.authors       = ["Randall Reed, Jr."]
+  spec.email         = ["randallreedjr@gmail.com"]
+
+  spec.summary       = %q{Gem to provide Math 24 game functionality.}
+  spec.description   = %q{Randomly generates a solvable 24 Game problem, verifies user's solution, or finds a solution for a given set of numbers.}
+  spec.homepage      = "http://www.getto24.com"
+  spec.license       = "MIT"
+
+
+
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "bundler", "~> 1.13"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end
