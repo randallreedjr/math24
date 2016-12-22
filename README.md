@@ -1,42 +1,46 @@
-Math24
-======
+# Math24
 
-Math 24 game and solver
+Math24 is a gem providing functionality to play the base version of the Math 24
+ game. In the base version of Math 24, a player must combine 4 integers, using
+ addition (+), subtraction (-), multiplication (\*), or division (/) to reach 24.
+ Extensions to the game included fraction, decimals, exponents, and other
+ mathematical functions.
 
-This repository holds the source code for the math24 ruby gem.
+## Installation
 
-math24 includes classes for both generating 24 Game problems as well as checking solutions. It also installs an executable, math24, that will allow the user to play a command line version of the 24 Game.
+Add this line to your application's Gemfile:
 
-Ruby gem
---------
-Installing the math24 gem should include all required dependencies.
-
-For more information see:
-[math24 at rubygems.org](https://rubygems.org/gems/math24)
-
-Running the executable
-----------------------
-To run the command line game, first install the gem:
-```bash
-> gem install math24
-Successfully installed math24-1.0.1
-1 gem installed
+```ruby
+gem 'math24', '~>2.0.0'
 ```
 
-Then, to start the game, type
-```bash
-> math24
-```
+And then execute:
 
-To quit, just type
-```bash
-exit
-```
+    $ bundle
 
-## Deploying Web App
+Or install it yourself as:
 
-The math 24 Sinatra web application is hosted on Heroku. Pushes to the `master` branch will automatically deploy via Codeship CI.
+    $ gem install math24
 
-You can also force a deploy by running `git push heroku master`.
+*Note that the `< 2.0.0` version of the gem is deprecated.*
 
-The web app is accessible at http://www.getto24.com.
+## Usage
+
+As of version `2.0.0`, the interactive CLI version of the game has been removed.
+
+
+TODO: Write usage instructions here
+
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/randallreedjr/math24.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
