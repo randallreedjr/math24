@@ -59,6 +59,13 @@ describe Math24 do
 
       expect(solution).to be false
     end
+
+    it 'returns solution that does not rely on float division' do
+      solution = Math24.solve [9, 6, 5, 2]
+      # should never be 9 + (6 * (5 / 2))
+
+      expect(solution).to eq "9 + (5 * (6 / 2))"
+    end
   end
 
   describe '#check' do

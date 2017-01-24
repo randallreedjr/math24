@@ -8,3 +8,4 @@
 /spec/reports/
 /tmp/
 math24-*.gem
+.byebug_history
