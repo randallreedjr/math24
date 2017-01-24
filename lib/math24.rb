@@ -20,33 +20,36 @@ module Math24
     num_permutation.each do |numbers|
       op_permutation.each do |operators|
         begin
-          forward_result = instance_eval("((#{numbers[0].to_f} #{operators[0]} #{numbers[1]}.to_f) #{operators[1]} #{numbers[2]}.to_f) #{operators[2]} #{numbers[3].to_f}")
+          proposed_solution = "((#{numbers[0].to_f} #{operators[0]} #{numbers[1]}.to_f) #{operators[1]} #{numbers[2]}.to_f) #{operators[2]} #{numbers[3].to_f}"
+          forward_result = instance_eval(proposed_solution)
         rescue ZeroDivisionError
           forward_result = 0
         end
 
         begin
-          alternate_result = instance_eval("(#{numbers[0].to_f} #{operators[0]} #{numbers[1].to_f}) #{operators[1]} (#{numbers[2].to_f} #{operators[2]} #{numbers[3].to_f})")
+          proposed_solution = "(#{numbers[0].to_f} #{operators[0]} #{numbers[1].to_f}) #{operators[1]} (#{numbers[2].to_f} #{operators[2]} #{numbers[3].to_f})"
+          alternate_result = instance_eval(proposed_solution)
         rescue ZeroDivisionError
           alternate_result = 0
         end
 
         begin
-          reverse_result = instance_eval("#{numbers[0].to_f} #{operators[0]} (#{numbers[1].to_f} #{operators[1]} (#{numbers[2].to_f} #{operators[2]} #{numbers[3].to_f}))")
+          proposed_solution = "#{numbers[0].to_f} #{operators[0]} (#{numbers[1].to_f} #{operators[1]} (#{numbers[2].to_f} #{operators[2]} #{numbers[3].to_f}))"
+          reverse_result = instance_eval(proposed_solution)
         rescue ZeroDivisionError
           reverse_result = 0
         end
 
-        if forward_result == 24
+        if forward_result == 24 && integer_division_only?(proposed_solution)
           if (operators.include?("+") || operators.include?("-")) && (operators.include?("*") || operators.include?("/"))
             #Might need parentheses for order of operations
             return "((#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} #{numbers[2]}) #{operators[2]} #{numbers[3]}"
           else
             return "#{numbers[0]} #{operators[0]} #{numbers[1]} #{operators[1]} #{numbers[2]} #{operators[2]} #{numbers[3]}"
           end
-        elsif alternate_result == 24
+        elsif alternate_result == 24 && integer_division_only?(proposed_solution)
           return "(#{numbers[0]} #{operators[0]} #{numbers[1]}) #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]})"
-        elsif reverse_result == 24
+        elsif reverse_result == 24 && integer_division_only?(proposed_solution)
           return "#{numbers[0]} #{operators[0]} (#{numbers[1]} #{operators[1]} (#{numbers[2]} #{operators[2]} #{numbers[3]}))"
         end
       end
@@ -55,12 +58,23 @@ module Math24
     return false
   end
 
-    def self.check(problem, solution)
-      raise ArgumentError unless /\A\d{4}\z/.match problem.join
-      raise ArgumentError unless solution.is_a? String
-      raise ArgumentError unless /\A(\(*(\d{1}[()\s]*[*+-\/]+[()\s]*){3}\d{1}\)*)\z/.match(solution)
+  def self.check(problem, solution)
+    raise ArgumentError unless /\A\d{4}\z/.match problem.join
+    raise ArgumentError unless solution.is_a? String
+    raise ArgumentError unless /\A(\(*(\d{1}[()\s]*[*+-\/]+[()\s]*){3}\d{1}\)*)\z/.match(solution)
 
-      problem.count {|i| solution.include?(i.to_s) } == 4 &&
-        instance_eval(solution) == 24
+    problem.count {|i| solution.include?(i.to_s) } == 4 &&
+      instance_eval(solution) == 24
+  end
+
+  private
+
+  def self.integer_division_only? proposed_solution
+    # float and integer division yield same result
+    begin
+      instance_eval(proposed_solution) == instance_eval(proposed_solution.delete('.0'))
+    rescue ZeroDivisionError
+      false
     end
+  end
 end
